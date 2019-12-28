@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const vscode_1 = require("vscode");
-const api = require("./api");
+const api = require("./api/index");
 function activate(context) {
     console.log('Happy shineout coding!!');
     const componentProvider = vscode_1.languages.registerCompletionItemProvider('javascript', {

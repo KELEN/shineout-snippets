@@ -1,1 +1,1 @@
-{"version":3,"file":"alert.js","sourceRoot":"","sources":["../../src/api/alert.ts"],"names":[],"mappings":";;AACU,kBAAe;IACb,UAAU,EAAE,QAAQ;CACrB,CAAA"}
+{"version":3,"file":"alert.js","sourceRoot":"","sources":["../../src/api/alert.ts"],"names":[],"mappings":";;AAAA,kBAAe;IACb,KAAK,EAAE,IAAI;CACZ,CAAA"}

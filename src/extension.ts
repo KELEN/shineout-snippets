@@ -12,8 +12,7 @@ import {
   Range,
 } from 'vscode';
 
-import * as api from './api';
-
+import * as api from './api/index';
 
 export function activate(context: ExtensionContext) {
 
@@ -40,7 +39,7 @@ export function activate(context: ExtensionContext) {
       // import方式引入
       const importRegex = /import.*from.+shineout/g;
       const componentRegex = /<([A-Z][a-zA-Z0-9]*)\b[^<>]*$/g;
-      
+  
       if (importRegex.test(text) && componentRegex.test(text)) {
         const match = RegExp.$1;
         if (match) {

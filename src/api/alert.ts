@@ -1,5 +1,3 @@
-
-          export default {
-            'children': '123213',
-          }
-        
+export default {
+  'aaa': 1223,
+}
