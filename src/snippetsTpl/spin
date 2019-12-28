@@ -1,0 +1,1 @@
+<Spin size={${1:18}} name="${2:default}" color="${3:green}" />

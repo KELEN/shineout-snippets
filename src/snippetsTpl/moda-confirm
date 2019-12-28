@@ -1,0 +1,6 @@
+Modal.confirm({
+  title: '${1:This is a confirm message}',
+  content: '${2:this is some information that user confirm}',
+  onOk: () =>
+  text: { ok: '${3:Yes}', cancel: '${4:NO}' },
+})

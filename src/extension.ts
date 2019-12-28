@@ -7,29 +7,18 @@ import {
   CompletionContext,
   CompletionItem,
   CompletionItemKind,
-  SnippetString,
-  MarkdownString,
   Range,
 } from 'vscode';
 
 import * as api from './api/index';
+// import snippets from './snippets';
 
 export function activate(context: ExtensionContext) {
 
-  console.log('Happy shineout coding!!');
-
-	const componentProvider = languages.registerCompletionItemProvider('javascript', {
-		provideCompletionItems(document: TextDocument, position: Position, token: CancellationToken, context: CompletionContext) {
-			const componentCompletion = new CompletionItem('shineout-table');
-			componentCompletion.insertText = new SnippetString('Good ${1|morning,afternoon,evening|}. It is ${1}, right?');
-			componentCompletion.documentation = new MarkdownString("shineout table snippets");
-
-			return [
-				componentCompletion,
-			];
-		}
-  });
-  
+  console.log('Congrations Happy shineout coding!!');
+  /**
+   * api提示
+   */
   const apiProvicer  = languages.registerCompletionItemProvider('javascript', {
     provideCompletionItems(document: TextDocument, position: Position, token: CancellationToken, context: CompletionContext): CompletionItem[] { 
       const start: Position = new Position(0, 0);
@@ -62,5 +51,5 @@ export function activate(context: ExtensionContext) {
     }
   }, " ", "\n");
 
-	context.subscriptions.push(componentProvider, apiProvicer);
+	context.subscriptions.push(apiProvicer);
 }

@@ -2,18 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const vscode_1 = require("vscode");
 const api = require("./api/index");
+// import snippets from './snippets';
 function activate(context) {
-    console.log('Happy shineout coding!!');
-    const componentProvider = vscode_1.languages.registerCompletionItemProvider('javascript', {
-        provideCompletionItems(document, position, token, context) {
-            const componentCompletion = new vscode_1.CompletionItem('shineout-table');
-            componentCompletion.insertText = new vscode_1.SnippetString('Good ${1|morning,afternoon,evening|}. It is ${1}, right?');
-            componentCompletion.documentation = new vscode_1.MarkdownString("shineout table snippets");
-            return [
-                componentCompletion,
-            ];
-        }
-    });
+    console.log('Congrations Happy shineout coding!!');
+    /**
+     * api提示
+     */
     const apiProvicer = vscode_1.languages.registerCompletionItemProvider('javascript', {
         provideCompletionItems(document, position, token, context) {
             const start = new vscode_1.Position(0, 0);
@@ -43,7 +37,7 @@ function activate(context) {
             return [];
         }
     }, " ", "\n");
-    context.subscriptions.push(componentProvider, apiProvicer);
+    context.subscriptions.push(apiProvicer);
 }
 exports.activate = activate;
 //# sourceMappingURL=extension.js.map

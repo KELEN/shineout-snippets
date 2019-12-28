@@ -1,0 +1,18 @@
+<Upload
+  action="${1://jsonplaceholder.typicode.com/posts}"
+  accept="image/*"
+  value={this.state.value}
+  name="file"
+  onSuccess={(res, file) => file.name}
+  onChange={v => {
+    console.log(v)
+    this.setState({ value: v })
+  }}
+  limit={3}
+  style={{ width: 300 }}
+>
+  <Button>
+    <FontAwesome name="upload" />
+    Upload file
+  </Button>
+</Upload>

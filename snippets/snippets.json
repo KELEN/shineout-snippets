@@ -1,7 +1,0 @@
-{
-  "shineout table": {
-    "prefix": "sTable",
-    "body": "console.error(${1:object});",
-    "description": "Displays a message in the console and also includes a stack trace from where the method was called"
-  }
-}

@@ -1,0 +1,7 @@
+<DatePicker
+  range
+  onChange={d => console.log(d)}
+  type="datetime"
+  allowSingle
+  style={{ marginTop: '12px' }}
+/>

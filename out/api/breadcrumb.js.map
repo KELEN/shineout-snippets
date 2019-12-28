@@ -1,1 +1,1 @@
-{"version":3,"file":"breadcrumb.js","sourceRoot":"","sources":["../../src/api/breadcrumb.ts"],"names":[],"mappings":";;AACU,kBAAe;IACb,MAAM,EAAE,CAAC,WAAW,EAAC,SAAS,EAAC,oBAAoB,CAAC;IAChE,WAAW,EAAE,CAAC,sBAAsB,EAAC,YAAY,EAAC,0BAA0B,CAAC;IAC7E,QAAQ,EAAE,CAAC,0CAA0C,EAAC,SAAS,EAAC,mIAAmI,CAAC;CACzL,CAAA"}
+{"version":3,"file":"breadcrumb.js","sourceRoot":"","sources":["../../src/api/breadcrumb.ts"],"names":[],"mappings":";;AACU,kBAAe;IACb,MAAM,EAAE,wCAAwC;IAC5D,WAAW,EAAE,4DAA4D;IACzE,QAAQ,EAAE,sLAAsL;CACrL,CAAA"}

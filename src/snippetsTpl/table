@@ -1,0 +1,7 @@
+<Table
+  fixed="${1:both}"
+  loading={${2:loading}}
+  data={${3:data}}
+  keygen="${4:id}"
+  columns={${5:columns}}
+/>
