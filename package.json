@@ -26,7 +26,7 @@
     "snippets": [
       {
         "language": "javascript",
-        "path": "./src/snippets.json"
+        "path": "./src/snippets.json",
       },
       {
         "language": "typescript",

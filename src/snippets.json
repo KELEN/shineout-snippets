@@ -1,17 +1,17 @@
 {
- "shineout-modal-form": {
-  "prefix": "shineout-modal-form",
+ "shineout-data-split-table": {
+  "prefix": "shineout-data-split-table",
   "body": [
-   "<Modal\n  visible={${1:visible}}\n  width={456}\n  title=\"Form\"\n  onClose={${2:this.onClose()}}\n  footer={\n    <div>\n      <Button onClick={this.handleClose}>Cancel</Button>\n      <Modal.Submit>Submit</Modal.Submit>\n    </div>\n  }\n>\n  <Form\n    labelWidth={100}\n    labelAlign=\"right\"\n    style={{ maxWidth: 400 }}\n    onSubmit={this.handleSubmit}\n  >\n    <Form.Item required label=\"Email\">\n      <Input name=\"email\" />\n    </Form.Item>\n\n    <Form.Item required label=\"Password\">\n      <Input name=\"password\" type=\"password\" />\n    </Form.Item>\n  </Form>\n</Modal>"
+   "<DataSplitTable\n  rowsInView={${1:10}}\n  groupBy=\"${2:info}\"\n  bordered\n  striped\n  keygen={v => `${v.skc}`}\n  childKeygen=\"size\"\n  data={data.info.list}\n  fixed=\"both\"\n  columns={columns}\n  style={{ height: 500 }}\n/>"
   ],
-  "description": "shineout-modal-form"
+  "description": "shineout-data-split-table"
  },
- "shineout-datepicker": {
-  "prefix": "shineout-datepicker",
+ "shineout-moda-confirm": {
+  "prefix": "shineout-moda-confirm",
   "body": [
-   "<DatePicker\n  range\n  onChange={d => console.log(d)}\n  type=\"datetime\"\n  allowSingle\n  style={{ marginTop: '12px' }}\n/>"
+   "Modal.confirm({\n  title: '${1:This is a confirm message}',\n  content: '${2:this is some information that user confirm}',\n  onOk: () =>\n  text: { ok: '${3:Yes}', cancel: '${4:NO}' },\n})"
   ],
-  "description": "shineout-datepicker"
+  "description": "shineout-moda-confirm"
  },
  "shineout-search-area": {
   "prefix": "shineout-search-area",
@@ -20,12 +20,12 @@
   ],
   "description": "shineout-search-area"
  },
- "shineout-moda-confirm": {
-  "prefix": "shineout-moda-confirm",
+ "shineout-modal-form": {
+  "prefix": "shineout-modal-form",
   "body": [
-   "Modal.confirm({\n  title: '${1:This is a confirm message}',\n  content: '${2:this is some information that user confirm}',\n  onOk: () =>\n  text: { ok: '${3:Yes}', cancel: '${4:NO}' },\n})"
+   "<Modal\n  visible={${1:visible}}\n  width={456}\n  title=\"Form\"\n  onClose={${2:this.onClose()}}\n  footer={\n    <div>\n      <Button onClick={this.handleClose}>Cancel</Button>\n      <Modal.Submit>Submit</Modal.Submit>\n    </div>\n  }\n>\n  <Form\n    labelWidth={100}\n    labelAlign=\"right\"\n    style={{ maxWidth: 400 }}\n    onSubmit={this.handleSubmit}\n  >\n    <Form.Item required label=\"Email\">\n      <Input name=\"email\" />\n    </Form.Item>\n\n    <Form.Item required label=\"Password\">\n      <Input name=\"password\" type=\"password\" />\n    </Form.Item>\n  </Form>\n</Modal>"
   ],
-  "description": "shineout-moda-confirm"
+  "description": "shineout-modal-form"
  },
  "shineout-table": {
   "prefix": "shineout-table",
@@ -48,11 +48,11 @@
   ],
   "description": "shineout-upload"
  },
- "shineout-data-split-table": {
-  "prefix": "shineout-data-split-table",
+ "shineout-datepicker": {
+  "prefix": "shineout-datepicker",
   "body": [
-   "<DataSplitTable\n  rowsInView={${1:10}}\n  groupBy=\"${2:info}\"\n  bordered\n  striped\n  keygen={v => `${v.skc}`}\n  childKeygen=\"size\"\n  data={data.info.list}\n  fixed=\"both\"\n  columns={columns}\n  style={{ height: 500 }}\n/>"
+   "<DatePicker\n  range\n  onChange={d => console.log(d)}\n  type=\"datetime\"\n  allowSingle\n  style={{ marginTop: '12px' }}\n/>"
   ],
-  "description": "shineout-data-split-table"
+  "description": "shineout-datepicker"
  }
 }
