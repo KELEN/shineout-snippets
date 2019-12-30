@@ -1,0 +1,12 @@
+<DataSplitTable
+  rowsInView={${1:10}}
+  groupBy="${2:info}"
+  bordered
+  striped
+  keygen={v => `${v.skc}`}
+  childKeygen="size"
+  data={data.info.list}
+  fixed="both"
+  columns={columns}
+  style={{ height: 500 }}
+/>

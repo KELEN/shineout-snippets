@@ -24,7 +24,14 @@ function activate(context) {
                     if (matchApi) {
                         const attrs = Object.keys(matchApi);
                         const completionItems = attrs.map(attr => {
-                            const completionItem = new vscode_1.CompletionItem(attr, vscode_1.CompletionItemKind.Variable);
+                            const completionItem = new vscode_1.CompletionItem(attr, vscode_1.CompletionItemKind.Property);
+                            switch (context.triggerCharacter) {
+                                case ' ':
+                                    completionItem.range = new vscode_1.Range(new vscode_1.Position(position.line, position.character - 1), new vscode_1.Position(position.line, attr.length + position.character - 1));
+                                    break;
+                                default:
+                                    break;
+                            }
                             completionItem.detail = matchApi[attr];
                             return completionItem;
                         });
@@ -36,7 +43,7 @@ function activate(context) {
             }
             return [];
         }
-    }, " ", "\n");
+    }, " ");
     context.subscriptions.push(apiProvicer);
 }
 exports.activate = activate;

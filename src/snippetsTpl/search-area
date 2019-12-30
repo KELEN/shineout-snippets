@@ -1,0 +1,16 @@
+<SearchArea
+  onSearch={this.handleSearch}
+  onChange={this.handleChange}
+  onClear={this.handleClear}
+  value={data}
+  style={{ minWidth: '800px' }}
+  appKey="${1:appkey}"
+  pageName="SearchArea"
+  uid="testuser"
+  componentId="${2:测试用例9}"
+  advancedSearch={['订单号', '订单id', '邮箱', '站点']}
+  buttonPosition="top"
+  autoCollapse
+  collapseOnSearch={false}
+>
+</SearchArea>

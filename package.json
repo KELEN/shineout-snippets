@@ -3,7 +3,7 @@
   "displayName": "shineout-snippets",
   "description": "shineout happy coding",
   "publisher": "kelen",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.41.0"
   },
@@ -26,8 +26,7 @@
     "snippets": [
       {
         "language": "javascript",
-        "path": "./src/snippets.json",
-        "triggerCharacters": "shineout"
+        "path": "./src/snippets.json"
       },
       {
         "language": "typescript",

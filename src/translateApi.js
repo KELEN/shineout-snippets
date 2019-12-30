@@ -25,6 +25,16 @@ const writeFile = (component, text) => {
  */
 const transSingleFile = (component) => {
   const srcPath = path.resolve(__dirname, 'components', component, 'cn.md');
+
+  fs.readdirAsync(path.resolve(__dirname, 'components', component))
+  .then(files => {
+    files.forEach(file => {
+      if (path.extname(file) === '.js') {
+        fs.unlinkSync(path.resolve(__dirname, 'components', component, file));
+      }
+    })
+  })
+
   fs.readFileAsync(srcPath).then(res => {
     const token = marked.lexer(res.toString());
     const apiStart = token.findIndex(t => t.header && t.header[0] === '属性');

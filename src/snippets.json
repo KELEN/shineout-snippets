@@ -1,10 +1,24 @@
 {
+ "shineout-modal-form": {
+  "prefix": "shineout-modal-form",
+  "body": [
+   "<Modal\n  visible={${1:visible}}\n  width={456}\n  title=\"Form\"\n  onClose={${2:this.onClose()}}\n  footer={\n    <div>\n      <Button onClick={this.handleClose}>Cancel</Button>\n      <Modal.Submit>Submit</Modal.Submit>\n    </div>\n  }\n>\n  <Form\n    labelWidth={100}\n    labelAlign=\"right\"\n    style={{ maxWidth: 400 }}\n    onSubmit={this.handleSubmit}\n  >\n    <Form.Item required label=\"Email\">\n      <Input name=\"email\" />\n    </Form.Item>\n\n    <Form.Item required label=\"Password\">\n      <Input name=\"password\" type=\"password\" />\n    </Form.Item>\n  </Form>\n</Modal>"
+  ],
+  "description": "shineout-modal-form"
+ },
  "shineout-datepicker": {
   "prefix": "shineout-datepicker",
   "body": [
    "<DatePicker\n  range\n  onChange={d => console.log(d)}\n  type=\"datetime\"\n  allowSingle\n  style={{ marginTop: '12px' }}\n/>"
   ],
   "description": "shineout-datepicker"
+ },
+ "shineout-search-area": {
+  "prefix": "shineout-search-area",
+  "body": [
+   "<SearchArea\n  onSearch={this.handleSearch}\n  onChange={this.handleChange}\n  onClear={this.handleClear}\n  value={data}\n  style={{ minWidth: '800px' }}\n  appKey=\"${1:appkey}\"\n  pageName=\"SearchArea\"\n  uid=\"testuser\"\n  componentId=\"${2:测试用例9}\"\n  advancedSearch={['订单号', '订单id', '邮箱', '站点']}\n  buttonPosition=\"top\"\n  autoCollapse\n  collapseOnSearch={false}\n>\n</SearchArea>"
+  ],
+  "description": "shineout-search-area"
  },
  "shineout-moda-confirm": {
   "prefix": "shineout-moda-confirm",
@@ -13,19 +27,19 @@
   ],
   "description": "shineout-moda-confirm"
  },
+ "shineout-table": {
+  "prefix": "shineout-table",
+  "body": [
+   "<Table\n  fixed=\"${1:both}\"\n  loading={${2:loading}}\n  data={${3:data}}\n  keygen=\"${4:id}\"\n  columns={${5:columns}}\n/>"
+  ],
+  "description": "shineout-table"
+ },
  "shineout-spin": {
   "prefix": "shineout-spin",
   "body": [
    "<Spin size={${1:18}} name=\"${2:default}\" color=\"${3:green}\" />"
   ],
   "description": "shineout-spin"
- },
- "shineout-modal-form": {
-  "prefix": "shineout-modal-form",
-  "body": [
-   "<Modal\n  visible={${1:visible}}\n  width={456}\n  title=\"Form\"\n  onClose={${2:this.onClose()}}\n  footer={\n    <div>\n      <Button onClick={this.handleClose}>Cancel</Button>\n      <Modal.Submit>Submit</Modal.Submit>\n    </div>\n  }\n>\n  <Form\n    labelWidth={100}\n    labelAlign=\"right\"\n    style={{ maxWidth: 400 }}\n    onSubmit={this.handleSubmit}\n  >\n    <Form.Item required label=\"Email\">\n      <Input name=\"email\" />\n    </Form.Item>\n\n    <Form.Item required label=\"Password\">\n      <Input name=\"password\" type=\"password\" />\n    </Form.Item>\n  </Form>\n</Modal>"
-  ],
-  "description": "shineout-modal-form"
  },
  "shineout-upload": {
   "prefix": "shineout-upload",
@@ -34,11 +48,11 @@
   ],
   "description": "shineout-upload"
  },
- "shineout-table": {
-  "prefix": "shineout-table",
+ "shineout-data-split-table": {
+  "prefix": "shineout-data-split-table",
   "body": [
-   "<Table\n  fixed=\"${1:both}\"\n  loading={${2:loading}}\n  data={${3:data}}\n  keygen=\"${4:id}\"\n  columns={${5:columns}}\n/>"
+   "<DataSplitTable\n  rowsInView={${1:10}}\n  groupBy=\"${2:info}\"\n  bordered\n  striped\n  keygen={v => `${v.skc}`}\n  childKeygen=\"size\"\n  data={data.info.list}\n  fixed=\"both\"\n  columns={columns}\n  style={{ height: 500 }}\n/>"
   ],
-  "description": "shineout-table"
+  "description": "shineout-data-split-table"
  }
 }

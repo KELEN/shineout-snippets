@@ -6,6 +6,10 @@ shineout框架自动生成插件
 
 自动填充shineout组件代码
 
+1. 在标签内使用空格触发自动提示功能
+
+2. 输入shineout关键字前缀自动生成对应的组件模板
+
 ## Extension Settings
 
 Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
