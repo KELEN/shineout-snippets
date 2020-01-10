@@ -1,0 +1,1 @@
+<Switch size="${1:small}" checked={${2:false}} defaultValue={${3:defaultValue}} />

@@ -1,0 +1,8 @@
+<Form.Item
+  label="${1:label}"
+  labelAlign="${2:right}"
+  labelWidth="${3:140px}"
+  ${4:required}
+>
+  
+</Form.Item>

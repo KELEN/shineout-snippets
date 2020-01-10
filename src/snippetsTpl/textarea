@@ -1,0 +1,1 @@
+<Textarea rows={${1:6}} placeholder="${2:input something}" />

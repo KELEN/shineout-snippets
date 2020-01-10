@@ -3,8 +3,7 @@
   "displayName": "shineout-snippets",
   "description": "shineout happy coding",
   "publisher": "kelen",
-  "version": "0.0.56",
-  "repository": "https://github.com/KELEN/shineout-snippets",
+  "version": "0.0.51",
   "engines": {
     "vscode": "^1.41.0"
   },
@@ -21,10 +20,7 @@
     "Other"
   ],
   "activationEvents": [
-    "onLanguage:javascript",
-    "onLanguage:javascriptreact",
-    "onLanguage:typescript",
-    "onLanguage:typescriptreact",
+    "*",
     "onCommand:shineout.docs"
   ],
   "main": "./out/extension",
@@ -34,17 +30,31 @@
         "command": "shineout.docs",
         "title": "shineout文档"
       }
+    ],
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./src/snippets.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./src/snippets.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./src/snippets.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./src/snippets.json"
+      }
     ]
   },
   "devDependencies": {
     "@types/node": "^13.1.1",
     "@types/vscode": "^1.41.0",
-    "babel-traverse": "^6.26.0",
-    "babel-types": "^6.26.0",
-    "prettier": "^1.19.1",
     "tslint": "^5.20.1",
-    "typescript": "^3.7.4",
-    "vscode": "^1.1.36"
+    "typescript": "^3.7.4"
   },
   "dependencies": {
     "axios": "^0.19.0",

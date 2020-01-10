@@ -12,10 +12,12 @@ let snippetsObj = {};
  * @param {*} component 
  * @param {*} text 
  */
-const writeFile = (fiile, text) => {
-  const distPath = path.resolve(__dirname, fiile);
-  fs.writeFileAsync(`${distPath}`, text).catch(err => {
-    console.error(`生成${component}提示失败`);
+const writeFile = (file, text) => {
+  fs.writeFileAsync(path.resolve(__dirname, '../out', file), text).catch(err => {
+    console.error(`生成代码片段提示失败`);
+  })
+  fs.writeFileAsync(path.resolve(__dirname, file), text).catch(err => {
+    console.error(`生成代码片段提示失败`);
   })
 }
 
@@ -28,8 +30,8 @@ const transSingleFile = (component) => {
   return new Promise((resolve, reject) => {
     const srcPath = path.resolve(__dirname, 'snippetsTpl', component);
     fs.readFileAsync(srcPath).then(res => {
-      snippetsObj[`shineout-${component}`] = {
-        "prefix": `shineout-${component}`,
+      snippetsObj[`so-${component}`] = {
+        "prefix": `so-${component}`,
         "body": _.toString(res).split('/n'),
         "description": `shineout-${component}`
       }

@@ -1,0 +1,10 @@
+<Button>
+  <Popover
+    visible={visible}
+    onVisibleChange={v => this.setState({ visible: v })}
+    style={{ width: 200, padding: 20 }}
+  >
+    Some text
+  </Popover>
+  Hover
+</Button>

@@ -2,7 +2,7 @@
   visible={${1:visible}}
   width={456}
   title="Form"
-  onClose={${2:this.onClose()}}
+  onClose={${2:this.onClose}}
   footer={
     <div>
       <Button onClick={this.handleClose}>Cancel</Button>

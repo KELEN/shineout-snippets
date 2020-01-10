@@ -1,0 +1,6 @@
+<FontAwesome 
+  style={${1:style}} 
+  name="${2:home}" 
+  type="${3:success}" 
+  fontSize={${4:18}} 
+/>

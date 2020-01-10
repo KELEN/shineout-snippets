@@ -1,0 +1,8 @@
+<Tabs defaultActive={1}>
+  <Tabs.Panel style={panelStyle} tab="Home">
+    {lorem(5)}
+  </Tabs.Panel>
+  <Tabs.Panel style={panelStyle} tab="Profile">
+    {lorem(6)}
+  </Tabs.Panel>
+</Tabs>

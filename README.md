@@ -1,6 +1,6 @@
 # shineout-snippets README
 
-shineout框架自动生成插件
+shineout框架自动生成插件, 使用快捷键```ctrl + /```打开提示
 
 ## Features
 
@@ -8,7 +8,8 @@ shineout框架自动生成插件
 
 1. 在标签内使用空格触发自动提示功能
 
-2. 输入shineout关键字前缀自动生成对应的组件模板
+2. 输入so-[component]关键字前缀自动生成对应的组件模板, 例如 so-table/so-form
+
 
 ## Extension Settings
 

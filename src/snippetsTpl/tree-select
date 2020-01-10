@@ -1,0 +1,9 @@
+<TreeSelect
+  value={${1:this.state.value}}
+  onChange={${2:this.handleChange}}
+  ${3:clearable}
+  style={${4:{ width: 250 }}}
+  keygen="${5:id}"
+  renderItem={node => `${6:node ${node.title}}`}
+  data={${7:data}}
+/>

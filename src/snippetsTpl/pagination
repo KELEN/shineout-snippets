@@ -1,0 +1,14 @@
+<Pagination
+  text={{
+    page: '条/页',
+    jumper: '跳至 {input} 页',
+  }}
+  align="${1:right}"
+  current={${2:pageNumber}}
+  pageSize={${3:pageSize}}
+  total={${4:total}}
+  layout={[({ total }) => `共 ${total} 条`, 'links', 'list', 'jumper']}
+  onChange={(value, pageSize) => {
+    ${5:}
+  }}
+/>

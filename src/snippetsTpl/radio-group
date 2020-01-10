@@ -1,0 +1,2 @@
+
+<Radio.Group keygen data={${1:data}} defaultValue="${2:blue}" renderItem={${3:renderItem}} />
