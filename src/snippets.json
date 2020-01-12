@@ -48,12 +48,12 @@
   ],
   "description": "shineout-modal-form"
  },
- "so-radio-group": {
-  "prefix": "so-radio-group",
+ "so-pagination": {
+  "prefix": "so-pagination",
   "body": [
-   "\n<Radio.Group keygen data={${1:data}} defaultValue=\"${2:blue}\" renderItem={${3:renderItem}} />"
+   "<Pagination\n  text={{\n    page: '条/页',\n    jumper: '跳至 {input} 页',\n  }}\n  align=\"${1:right}\"\n  current={${2:pageNumber}}\n  pageSize={${3:pageSize}}\n  total={${4:total}}\n  layout={[({ total }) => `共 ${total} 条`, 'links', 'list', 'jumper']}\n  onChange={(value, pageSize) => {\n    ${5:}\n  }}\n/>"
   ],
-  "description": "shineout-radio-group"
+  "description": "shineout-pagination"
  },
  "so-popover": {
   "prefix": "so-popover",
@@ -62,12 +62,12 @@
   ],
   "description": "shineout-popover"
  },
- "so-pagination": {
-  "prefix": "so-pagination",
+ "so-radio-group": {
+  "prefix": "so-radio-group",
   "body": [
-   "<Pagination\n  text={{\n    page: '条/页',\n    jumper: '跳至 {input} 页',\n  }}\n  align=\"${1:right}\"\n  current={${2:pageNumber}}\n  pageSize={${3:pageSize}}\n  total={${4:total}}\n  layout={[({ total }) => `共 ${total} 条`, 'links', 'list', 'jumper']}\n  onChange={(value, pageSize) => {\n    ${5:}\n  }}\n/>"
+   "\n<Radio.Group keygen data={${1:data}} defaultValue=\"${2:blue}\" renderItem={${3:renderItem}} />"
   ],
-  "description": "shineout-pagination"
+  "description": "shineout-radio-group"
  },
  "so-search-area": {
   "prefix": "so-search-area",
@@ -76,12 +76,19 @@
   ],
   "description": "shineout-search-area"
  },
- "so-tag": {
-  "prefix": "so-tag",
+ "so-spin": {
+  "prefix": "so-spin",
   "body": [
-   "<Tag type=\"${1:success}\">Success</Tag>"
+   "<Spin size={${1:18}} name=\"${2:default}\" color=\"${3:green}\" />"
   ],
-  "description": "shineout-tag"
+  "description": "shineout-spin"
+ },
+ "so-switch": {
+  "prefix": "so-switch",
+  "body": [
+   "<Switch size=\"${1:small}\" checked={${2:false}} defaultValue={${3:defaultValue}} />"
+  ],
+  "description": "shineout-switch"
  },
  "so-table": {
   "prefix": "so-table",
@@ -90,6 +97,13 @@
   ],
   "description": "shineout-table"
  },
+ "so-tag": {
+  "prefix": "so-tag",
+  "body": [
+   "<Tag type=\"${1:success}\">Success</Tag>"
+  ],
+  "description": "shineout-tag"
+ },
  "so-tabs": {
   "prefix": "so-tabs",
   "body": [
@@ -97,26 +111,12 @@
   ],
   "description": "shineout-tabs"
  },
- "so-spin": {
-  "prefix": "so-spin",
-  "body": [
-   "<Spin size={${1:18}} name=\"${2:default}\" color=\"${3:green}\" />"
-  ],
-  "description": "shineout-spin"
- },
  "so-textarea": {
   "prefix": "so-textarea",
   "body": [
    "<Textarea rows={${1:6}} placeholder=\"${2:input something}\" />"
   ],
   "description": "shineout-textarea"
- },
- "so-switch": {
-  "prefix": "so-switch",
-  "body": [
-   "<Switch size=\"${1:small}\" checked={${2:false}} defaultValue={${3:defaultValue}} />"
-  ],
-  "description": "shineout-switch"
  },
  "so-tree-select": {
   "prefix": "so-tree-select",

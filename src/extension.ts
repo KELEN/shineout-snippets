@@ -8,16 +8,13 @@ import {
   CompletionItem,
   CompletionItemKind,
   Range,
-  TextEditor,
   window,
   commands,
   SnippetString,
   MarkdownString,
-  ViewColumn
 } from 'vscode';
-import * as api from './api/index';
 import _ from 'lodash';
-import * as prettier from 'prettier';
+import SnippetsProvider from './snippetsProvider';
 const snippets = require('./snippets.json');
 
 interface ISelectionPosition {
@@ -26,6 +23,7 @@ interface ISelectionPosition {
 }
 
 export function activate(context: ExtensionContext) {
+  console.log('welcome to the shineout happy codeing');
   const provideCompletionItems = (document: TextDocument, position: Position, token: CancellationToken, context: CompletionContext): CompletionItem[] => {
     const { activeTextEditor } = window;
     if (activeTextEditor) {
@@ -45,33 +43,6 @@ export function activate(context: ExtensionContext) {
           completionItem.range = new Range(new Position(selectionPosition.line, keyIndex), new Position(selectionPosition.line, keyIndex));
           return completionItem;
         })
-      } else {
-        const start: Position = new Position(0, 0);
-        const range: Range = new Range(start, position);
-        const text = document.getText(range);
-        // import方式引入
-        const importRegex = /import.*from.+shineout/g;
-        const componentRegex = /<([A-Z][a-zA-Z0-9]*)\b[^<>]*$/g;
-        if (importRegex.test(text) && componentRegex.test(text)) {
-          const match = RegExp.$1;
-          if (match) {
-            const componentName: string = match.toLowerCase();
-            const matchApi = api[componentName]
-            if (matchApi) {
-              const attrs = Object.keys(matchApi);
-              const completionItems = attrs.map(attr => {
-                const completionItem = new CompletionItem(attr, CompletionItemKind.Property);
-                completionItem.detail = matchApi[attr];
-                completionItem.sortText = '\0';
-                return completionItem;
-              })
-              return completionItems;
-            }
-            return [];
-          }
-          return [];
-        }
-        return [];
       }
     }
     return [];
@@ -81,9 +52,12 @@ export function activate(context: ExtensionContext) {
     provideCompletionItems
   });
 
-  const completion = commands.registerTextEditorCommand('shineout.completion', (editor) => {
+  const triggerCompletion = commands.registerTextEditorCommand('shineout.completion', (editor) => {
     commands.executeCommand('editor.action.triggerSuggest');
   });
 
-  context.subscriptions.push(apiProvicerJs, completion);
+  const snippetsProvider = new SnippetsProvider();
+  const snippetProvider = languages.registerCompletionItemProvider(['javascript', 'typescript', 'javascriptreact', 'typescriptreact'], snippetsProvider);
+  
+  context.subscriptions.push(apiProvicerJs, snippetProvider, triggerCompletion);
 }
