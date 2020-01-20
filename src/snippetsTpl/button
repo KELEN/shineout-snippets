@@ -1,0 +1,1 @@
+<Button ${1:loading} size="${2:small}" type="${3:primary}">

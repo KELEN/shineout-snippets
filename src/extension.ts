@@ -14,7 +14,9 @@ import {
   MarkdownString,
 } from 'vscode';
 import _ from 'lodash';
-import SnippetsProvider from './snippetsProvider';
+import ApiProvider from './apiProvider';
+import { getSnippetMarkdownString } from './util';
+import webview from './webview';
 const snippets = require('./snippets.json');
 
 interface ISelectionPosition {
@@ -37,8 +39,7 @@ export function activate(context: ExtensionContext) {
         return keys.map(key => {
           const completionItem = new CompletionItem(snippets[key].prefix, CompletionItemKind.Snippet);
           completionItem.insertText = new SnippetString(snippets[key].body[0]);
-          completionItem.documentation = new MarkdownString(`## ${snippets[key].prefix}\n${snippets[key].body[0]}`);
-          // completionItem.documentation = prettier(snippets[key].body[0])
+          completionItem.documentation = getSnippetMarkdownString(snippets[key]);
           completionItem.sortText = '\0';
           completionItem.range = new Range(new Position(selectionPosition.line, keyIndex), new Position(selectionPosition.line, keyIndex));
           return completionItem;
@@ -48,7 +49,7 @@ export function activate(context: ExtensionContext) {
     return [];
   }
 
-  const apiProvicerJs = languages.registerCompletionItemProvider(['javascript', 'typescript', 'javascriptreact', 'typescriptreact'], {
+  const SnippetCompletionItemProvider = languages.registerCompletionItemProvider(['javascript', 'typescript', 'javascriptreact', 'typescriptreact'], {
     provideCompletionItems
   });
 
@@ -56,8 +57,10 @@ export function activate(context: ExtensionContext) {
     commands.executeCommand('editor.action.triggerSuggest');
   });
 
-  const snippetsProvider = new SnippetsProvider();
-  const snippetProvider = languages.registerCompletionItemProvider(['javascript', 'typescript', 'javascriptreact', 'typescriptreact'], snippetsProvider);
+  const apiProvider = new ApiProvider();
+  const apiCompletionItemProvider = languages.registerCompletionItemProvider(['javascript', 'typescript', 'javascriptreact', 'typescriptreact'], apiProvider);
+
+  const docsCommand = commands.registerCommand('shineout.docs', webview)
   
-  context.subscriptions.push(apiProvicerJs, snippetProvider, triggerCompletion);
+  context.subscriptions.push(SnippetCompletionItemProvider, apiCompletionItemProvider, triggerCompletion, docsCommand);
 }

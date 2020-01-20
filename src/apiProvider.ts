@@ -9,7 +9,7 @@ import * as api from './api';
 import { getAst } from './util';
 
 
-export default class SnippetsProvider implements CompletionItemProvider {
+export default class ApiProvider implements CompletionItemProvider {
 
   private isReactComponent(jsxOpeningElement: JSXOpeningElement): boolean {
     const nameOfJsxTag = (<JSXIdentifier>jsxOpeningElement.name).name;

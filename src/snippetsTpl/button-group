@@ -1,0 +1,5 @@
+<Button.Group>
+  <Button>Left</Button>
+  <Button>Center</Button>
+  <Button>Right</Button>
+</Button.Group>

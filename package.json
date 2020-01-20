@@ -3,7 +3,7 @@
   "displayName": "shineout-snippets",
   "description": "shineout happy coding",
   "publisher": "kelen",
-  "version": "0.0.6",
+  "version": "0.0.61",
   "repository": "https://github.com/KELEN/shineout-snippets",
   "engines": {
     "vscode": "^1.41.0"
@@ -38,11 +38,19 @@
         "command": "shineout.completion",
         "title": "shineout自动提示"
       }
-    ]
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "when": "isWindows || isMac",
+          "command": "shineout.docs",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "devDependencies": {
     "@types/node": "^13.1.1",
-    "@types/prettier": "^1.19.0",
     "@types/vscode": "^1.41.0",
     "tslint": "^5.20.1",
     "typescript": "^3.7.4"

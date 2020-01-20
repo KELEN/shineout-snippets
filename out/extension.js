@@ -1,7 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const vscode_1 = require("vscode");
-const snippetsProvider_1 = require("./snippetsProvider");
+const apiProvider_1 = require("./apiProvider");
+const util_1 = require("./util");
+const webview_1 = require("./webview");
 const snippets = require('./snippets.json');
 function activate(context) {
     console.log('welcome to the shineout happy codeing');
@@ -19,8 +21,7 @@ function activate(context) {
                 return keys.map(key => {
                     const completionItem = new vscode_1.CompletionItem(snippets[key].prefix, vscode_1.CompletionItemKind.Snippet);
                     completionItem.insertText = new vscode_1.SnippetString(snippets[key].body[0]);
-                    completionItem.documentation = new vscode_1.MarkdownString(`## ${snippets[key].prefix}\n${snippets[key].body[0]}`);
-                    // completionItem.documentation = prettier(snippets[key].body[0])
+                    completionItem.documentation = util_1.getSnippetMarkdownString(snippets[key]);
                     completionItem.sortText = '\0';
                     completionItem.range = new vscode_1.Range(new vscode_1.Position(selectionPosition.line, keyIndex), new vscode_1.Position(selectionPosition.line, keyIndex));
                     return completionItem;
@@ -29,15 +30,16 @@ function activate(context) {
         }
         return [];
     };
-    const apiProvicerJs = vscode_1.languages.registerCompletionItemProvider(['javascript', 'typescript', 'javascriptreact', 'typescriptreact'], {
+    const SnippetCompletionItemProvider = vscode_1.languages.registerCompletionItemProvider(['javascript', 'typescript', 'javascriptreact', 'typescriptreact'], {
         provideCompletionItems
     });
     const triggerCompletion = vscode_1.commands.registerTextEditorCommand('shineout.completion', (editor) => {
         vscode_1.commands.executeCommand('editor.action.triggerSuggest');
     });
-    const snippetsProvider = new snippetsProvider_1.default();
-    const snippetProvider = vscode_1.languages.registerCompletionItemProvider(['javascript', 'typescript', 'javascriptreact', 'typescriptreact'], snippetsProvider);
-    context.subscriptions.push(apiProvicerJs, snippetProvider, triggerCompletion);
+    const apiProvider = new apiProvider_1.default();
+    const apiCompletionItemProvider = vscode_1.languages.registerCompletionItemProvider(['javascript', 'typescript', 'javascriptreact', 'typescriptreact'], apiProvider);
+    const docsCommand = vscode_1.commands.registerCommand('shineout.docs', webview_1.default);
+    context.subscriptions.push(SnippetCompletionItemProvider, apiCompletionItemProvider, triggerCompletion, docsCommand);
 }
 exports.activate = activate;
 //# sourceMappingURL=extension.js.map
