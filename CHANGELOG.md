@@ -1,9 +1,6 @@
-# Change Log
+# 版本记录
 
-All notable changes to the "shineout-snippets" extension will be documented in this file.
-
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-
-- Initial release
+1. 组件属性提示
+2. 代码自动补全
+3. 组件命令执行快速打开组件相关页面
+4. 编辑界面右上角新增组件首页入口

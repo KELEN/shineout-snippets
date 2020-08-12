@@ -26,7 +26,6 @@ const writeFile = (file, text) => {
  * @param {*} component 
  */
 const transSingleFile = (component) => {
-
   return new Promise((resolve, reject) => {
     const srcPath = path.resolve(__dirname, 'snippetsTpl', component);
     fs.readFileAsync(srcPath).then(res => {

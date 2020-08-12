@@ -11,13 +11,20 @@ import {
   window,
   commands,
   SnippetString,
-  MarkdownString,
+  Uri
 } from 'vscode';
 import _ from 'lodash';
 import ApiProvider from './apiProvider';
 import { getSnippetMarkdownString } from './util';
-import webview from './webview';
 const snippets = require('./snippets.json');
+
+const DOCS_URL = 'http://shineout-rc-docs-master-dev.dev.paas-dev.sheincorp.cn/1.6.x/cn/components/';
+
+const components = ['Button', 'Dropdown', 'Icon', 'Image', 'Cascader', 'Checkbox', 'DatePicker', 'Form', 'Input', 'Radio',
+  'Rate', 'Rule', 'Select', 'Slider', 'Switch', 'Textarea', 'TreeSelect', 'Upload',
+  'Carousel', 'Pagination', 'Table', 'Tree', 'Alert', 'Message', 'Modal', 'Popover',
+  'Progress', 'Spin', 'Tag', 'Tooltip', 'Card', 'Grid', 'Sticky', 'Tabs', 'Breadcrumb', 'Menu'
+];
 
 interface ISelectionPosition {
   line: number,
@@ -60,7 +67,15 @@ export function activate(context: ExtensionContext) {
   const apiProvider = new ApiProvider();
   const apiCompletionItemProvider = languages.registerCompletionItemProvider(['javascript', 'typescript', 'javascriptreact', 'typescriptreact'], apiProvider);
 
-  const docsCommand = commands.registerCommand('shineout.docs', webview)
+  const docsCommand = commands.registerCommand('shineout.docs', () => {
+    commands.executeCommand('vscode.open', Uri.parse(DOCS_URL + 'GetStart'));
+  })
+
+  components.forEach((component) => {
+    context.subscriptions.push(commands.registerCommand(`shineout.${component}`.toLowerCase(), () => {
+      commands.executeCommand('vscode.open', Uri.parse(DOCS_URL + component));
+    }))
+  })
   
   context.subscriptions.push(SnippetCompletionItemProvider, apiCompletionItemProvider, triggerCompletion, docsCommand);
 }

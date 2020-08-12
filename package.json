@@ -3,7 +3,7 @@
   "displayName": "shineout-snippets",
   "description": "shineout happy coding",
   "publisher": "kelen",
-  "version": "0.0.61",
+  "version": "0.0.7",
   "repository": "https://github.com/KELEN/shineout-snippets",
   "engines": {
     "vscode": "^1.41.0"
@@ -25,18 +25,235 @@
     "onLanguage:javascriptreact",
     "onLanguage:typescript",
     "onLanguage:typescriptreact",
-    "onCommand:shineout.docs"
+    "onCommand:shineout.docs",
+    "onCommand:shineout.button",
+    "onCommand:shineout.dropdown",
+    "onCommand:shineout.icon",
+    "onCommand:shineout.image",
+    "onCommand:shineout.cascader",
+    "onCommand:shineout.checkbox",
+    "onCommand:shineout.datepicker",
+    "onCommand:shineout.form",
+    "onCommand:shineout.input",
+    "onCommand:shineout.radio",
+    "onCommand:shineout.rate",
+    "onCommand:shineout.rule",
+    "onCommand:shineout.select",
+    "onCommand:shineout.slider",
+    "onCommand:shineout.switch",
+    "onCommand:shineout.textarea",
+    "onCommand:shineout.treeselect",
+    "onCommand:shineout.upload",
+    "onCommand:shineout.carousel",
+    "onCommand:shineout.pagination",
+    "onCommand:shineout.table",
+    "onCommand:shineout.tree",
+    "onCommand:shineout.alert",
+    "onCommand:shineout.message",
+    "onCommand:shineout.modal",
+    "onCommand:shineout.popover",
+    "onCommand:shineout.progress",
+    "onCommand:shineout.spin",
+    "onCommand:shineout.tag",
+    "onCommand:shineout.tooltip",
+    "onCommand:shineout.card",
+    "onCommand:shineout.grid",
+    "onCommand:shineout.sticky",
+    "onCommand:shineout.tabs",
+    "onCommand:shineout.breadcrumb",
+    "onCommand:shineout.menu"
   ],
   "main": "./out/extension",
   "contributes": {
     "commands": [
       {
         "command": "shineout.docs",
-        "title": "shineout文档"
+        "category": "shineout",
+        "title": "Docs",
+        "icon": {
+          "light": "images/icon.png",
+          "dark": "images/icon.png"
+        }
       },
       {
-        "command": "shineout.completion",
-        "title": "shineout自动提示"
+        "command": "shineout.button",
+        "category": "shineout",
+        "title": "Button"
+      },
+      {
+        "command": "shineout.dropdown",
+        "category": "shineout",
+        "title": "Dropdown"
+      },
+      {
+        "command": "shineout.icon",
+        "category": "shineout",
+        "title": "Icon"
+      },
+      {
+        "command": "shineout.image",
+        "category": "shineout",
+        "title": "Image"
+      },
+      {
+        "command": "shineout.cascader",
+        "category": "shineout",
+        "title": "Cascader"
+      },
+      {
+        "command": "shineout.checkbox",
+        "category": "shineout",
+        "title": "Checkbox"
+      },
+      {
+        "command": "shineout.datepicker",
+        "category": "shineout",
+        "title": "DatePicker"
+      },
+      {
+        "command": "shineout.form",
+        "category": "shineout",
+        "title": "Form"
+      },
+      {
+        "command": "shineout.input",
+        "category": "shineout",
+        "title": "Input"
+      },
+      {
+        "command": "shineout.radio",
+        "category": "shineout",
+        "title": "Radio"
+      },
+      {
+        "command": "shineout.rate",
+        "category": "shineout",
+        "title": "Rate"
+      },
+      {
+        "command": "shineout.rule",
+        "category": "shineout",
+        "title": "Rule"
+      },
+      {
+        "command": "shineout.select",
+        "category": "shineout",
+        "title": "Select"
+      },
+      {
+        "command": "shineout.slider",
+        "category": "shineout",
+        "title": "Slider"
+      },
+      {
+        "command": "shineout.switch",
+        "category": "shineout",
+        "title": "Switch"
+      },
+      {
+        "command": "shineout.textarea",
+        "category": "shineout",
+        "title": "Textarea"
+      },
+      {
+        "command": "shineout.treeselect",
+        "category": "shineout",
+        "title": "TreeSelect"
+      },
+      {
+        "command": "shineout.upload",
+        "category": "shineout",
+        "title": "Upload"
+      },
+      {
+        "command": "shineout.carousel",
+        "category": "shineout",
+        "title": "Carousel"
+      },
+      {
+        "command": "shineout.pagination",
+        "category": "shineout",
+        "title": "Pagination"
+      },
+      {
+        "command": "shineout.table",
+        "category": "shineout",
+        "title": "Table"
+      },
+      {
+        "command": "shineout.tree",
+        "category": "shineout",
+        "title": "Tree"
+      },
+      {
+        "command": "shineout.alert",
+        "category": "shineout",
+        "title": "Alert"
+      },
+      {
+        "command": "shineout.message",
+        "category": "shineout",
+        "title": "Message"
+      },
+      {
+        "command": "shineout.modal",
+        "category": "shineout",
+        "title": "Modal"
+      },
+      {
+        "command": "shineout.popover",
+        "category": "shineout",
+        "title": "Popover"
+      },
+      {
+        "command": "shineout.progress",
+        "category": "shineout",
+        "title": "Progress"
+      },
+      {
+        "command": "shineout.spin",
+        "category": "shineout",
+        "title": "Spin"
+      },
+      {
+        "command": "shineout.tag",
+        "category": "shineout",
+        "title": "Tag"
+      },
+      {
+        "command": "shineout.tooltip",
+        "category": "shineout",
+        "title": "Tooltip"
+      },
+      {
+        "command": "shineout.card",
+        "category": "shineout",
+        "title": "Card"
+      },
+      {
+        "command": "shineout.grid",
+        "category": "shineout",
+        "title": "Grid"
+      },
+      {
+        "command": "shineout.sticky",
+        "category": "shineout",
+        "title": "Sticky"
+      },
+      {
+        "command": "shineout.tabs",
+        "category": "shineout",
+        "title": "Tabs"
+      },
+      {
+        "command": "shineout.breadcrumb",
+        "category": "shineout",
+        "title": "Breadcrumb"
+      },
+      {
+        "command": "shineout.menu",
+        "category": "shineout",
+        "title": "Menu"
       }
     ],
     "menus": {

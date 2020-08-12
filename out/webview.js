@@ -10,33 +10,24 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const vscode_1 = require("vscode");
-const prettier = require("prettier");
+const util_1 = require("./util");
 exports.default = () => __awaiter(void 0, void 0, void 0, function* () {
+    const html = yield util_1.getWebContent('https://shine.wiki/1.5.x/cn/index/');
     const panel = vscode_1.window.createWebviewPanel('docs', 'shineout文档', vscode_1.ViewColumn.One, {
         enableScripts: true,
         retainContextWhenHidden: true,
     });
-    panel.webview.html = '<code>' + prettier.format(`
-  /**
-   * cn - 基本用法
-   *    -- 组件调用通过 json 数据配置
-   * en - Base
-   *    -- The basic usage.
-   */
-
-  import React from 'react'
-  import { Link } from 'react-router-dom'
-  import { Breadcrumb, Message } from 'shineout'
-
-  const data = [
-    [{ title: 'Home', url: '#home' }, { title: 'aaa', url: '#aaa' }, { title: 'bbb', url: '#bbb' }],
-    { title: <Link to="/components/Button">Button</Link> },
-    { title: 'Self', onClick: () => Message.show('Clicked self') },
-  ]
-
-  export default function() {
-    return <Breadcrumb data={data} />
-  }
-  `, { semi: false, parser: 'babel' }) + '</code>';
+    console.log(html);
+    panel.webview.html = `<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shineout</title>
+  </head>
+  <body>
+    <iframe style="width: 100%; height: 100%;" src="https://shine.wiki/1.5.x/cn/index" />
+  </body>
+  </html>`;
 });
 //# sourceMappingURL=webview.js.map

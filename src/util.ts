@@ -1,6 +1,6 @@
 import { parse } from 'babylon';
 import { MarkdownString } from 'vscode';
-
+import axios from 'axios';
 export interface ISnippterItem {
   body: Array<string>,
   prefix: string,
@@ -44,4 +44,13 @@ export const getSnippetMarkdownString = (snippter : ISnippterItem) : MarkdownStr
   mk.appendMarkdown(`## ${snippter.description}`);
   mk.appendCodeblock(text)
   return mk;
+}
+
+export const getWebContent = async (path) => {
+  const getContentRet = await axios.get(path);
+  if (getContentRet.status === 200) {
+    return getContentRet.data;
+  } else {
+    return 'Error'
+  }
 }
