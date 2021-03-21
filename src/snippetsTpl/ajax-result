@@ -1,0 +1,7 @@
+if (${1:ret}.code === '0') {
+  ${2:}
+} else {
+  Modal.error({
+    title: ${1:ret}.msg,
+  })
+}

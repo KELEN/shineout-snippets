@@ -6,33 +6,33 @@
   ],
   "description": "shineout-data-split-table"
  },
- "so-datepicker": {
-  "prefix": "so-datepicker",
+ "so-button-group": {
+  "prefix": "so-button-group",
   "body": [
-   "<DatePicker\n  range\n  onChange={d => console.log(d)}\n  type=\"datetime\"\n  allowSingle\n  style={{ marginTop: '12px' }}\n/>"
+   "<Button.Group>\n  <Button>Left</Button>\n  <Button>Center</Button>\n  <Button>Right</Button>\n</Button.Group>"
   ],
-  "description": "shineout-datepicker"
+  "description": "shineout-button-group"
  },
- "so-form": {
-  "prefix": "so-form",
+ "so-datepicker-range": {
+  "prefix": "so-datepicker-range",
   "body": [
-   "<Form\n  value={${1:value}}\n  onChange={${2:this.handleChange}}\n  onSubmit={${3:this.handleSubmit}}\n>\n  <Form.Item label=\"Email\">\n    <Input name=\"email\" />\n  </Form.Item>\n</Form>"
+   "<DatePicker\n  type=\"${1:datetime}\"\n  range\n  name={['${2:name1}', '${3:name2}']}\n  defaultTime={['00:00:00', '23:59:59']}\n  label=\"${4:label}\"\n  span={2}\n/>"
   ],
-  "description": "shineout-form"
+  "description": "shineout-datepicker-range"
  },
- "so-font-awesome": {
-  "prefix": "so-font-awesome",
+ "so-ajax-result": {
+  "prefix": "so-ajax-result",
   "body": [
-   "<FontAwesome \n  style={${1:style}} \n  name=\"${2:home}\" \n  type=\"${3:success}\" \n  fontSize={${4:18}} \n/>"
+   "if (${1:ret}.code === '0') {\n  ${2:}\n} else {\n  Modal.error({\n    title: ${1:ret}.msg,\n  })\n}"
   ],
-  "description": "shineout-font-awesome"
+  "description": "shineout-ajax-result"
  },
- "so-moda-confirm": {
-  "prefix": "so-moda-confirm",
+ "so-button": {
+  "prefix": "so-button",
   "body": [
-   "Modal.confirm({\n  title: '${1:This is a confirm message}',\n  content: '${2:this is some information that user confirm}',\n  onOk: () =>\n  text: { ok: '${3:Yes}', cancel: '${4:NO}' },\n})"
+   "<Button ${1:loading} size=\"${2:small}\" type=\"${3:primary}\">"
   ],
-  "description": "shineout-moda-confirm"
+  "description": "shineout-button"
  },
  "so-form-item": {
   "prefix": "so-form-item",
@@ -41,19 +41,54 @@
   ],
   "description": "shineout-form-item"
  },
+ "so-dropdown": {
+  "prefix": "so-dropdown",
+  "body": [
+   "import React from 'react'\nimport { Dropdown, Message } from 'shineout'\n\nconst data = [\n  {\n    content: 'Submenu',\n    children: [\n      {\n        content: 'Link to Google',\n        target: '_blank',\n        url: 'https://google.com',\n      },\n      {\n        content: 'Disabled',\n        disabled: true,\n      },\n    ],\n  },\n  <a href=\"/\">Home</a>,\n  {\n    content: 'Message',\n    onClick: () => {\n      Message.info('Some message.')\n    },\n  },\n]\n\nexport default function() {\n  return <Dropdown placeholder=\"Dropdown\" data={data} />\n}"
+  ],
+  "description": "shineout-dropdown"
+ },
+ "so-font-awesome": {
+  "prefix": "so-font-awesome",
+  "body": [
+   "<FontAwesome \n  style={${1:style}} \n  name=\"${2:home}\" \n  type=\"${3:success}\" \n  fontSize={${4:18}} \n/>"
+  ],
+  "description": "shineout-font-awesome"
+ },
+ "so-form": {
+  "prefix": "so-form",
+  "body": [
+   "<Form\n  value={${1:value}}\n  onChange={${2:this.handleChange}}\n  onSubmit={${3:this.handleSubmit}}\n>\n  <Form.Item label=\"Email\">\n    <Input name=\"email\" />\n  </Form.Item>\n</Form>"
+  ],
+  "description": "shineout-form"
+ },
  "so-modal-form": {
   "prefix": "so-modal-form",
   "body": [
-   "<Modal\n  visible={${1:visible}}\n  width={456}\n  title=\"Form\"\n  onClose={${2:this.onClose}}\n  footer={\n    <div>\n      <Button onClick={this.handleClose}>Cancel</Button>\n      <Modal.Submit>Submit</Modal.Submit>\n    </div>\n  }\n>\n  <Form\n    labelWidth={100}\n    labelAlign=\"right\"\n    style={{ maxWidth: 400 }}\n    onSubmit={this.handleSubmit}\n  >\n    <Form.Item required label=\"Email\">\n      <Input name=\"email\" />\n    </Form.Item>\n\n    <Form.Item required label=\"Password\">\n      <Input name=\"password\" type=\"password\" />\n    </Form.Item>\n  </Form>\n</Modal>"
+   "<Modal\n  visible={${1:visible}}\n  width={600}\n  title=\"${2:title}\"\n  onClose={${3:this.onClose}}\n  maskCloseAble={false}\n  footer={\n    <div>\n      <Button onClick={${3:this.onClose}}>取消</Button>\n      <Modal.Submit>提交</Modal.Submit>\n    </div>\n  }\n>\n  <Form\n    labelWidth={100}\n    labelAlign=\"right\"\n    onSubmit={${4:this.handleFormSubmit}}\n    onChange={${5:this.handleFormChange}}\n  >\n    <Form.Item required label=\"Email\">\n      <Input \n        name=\"email\"\n        trim\n        autoComplete=\"off\"\n        rules={[{\n          required: true,\n          message: '不能为空',\n        }]}\n      />\n    </Form.Item>\n\n    <Form.Item required label=\"Password\">\n      <Input \n        name=\"password\"\n        trim\n        autoComplete=\"off\"\n        rules={[{\n          required: true,\n          message: '不能为空',\n        }]}\n      />\n    </Form.Item>\n  </Form>\n</Modal>"
   ],
   "description": "shineout-modal-form"
  },
- "so-pagination": {
-  "prefix": "so-pagination",
+ "so-datepicker": {
+  "prefix": "so-datepicker",
   "body": [
-   "<Pagination\n  text={{\n    page: '条/页',\n    jumper: '跳至 {input} 页',\n  }}\n  align=\"${1:right}\"\n  current={${2:pageNumber}}\n  pageSize={${3:pageSize}}\n  total={${4:total}}\n  layout={[({ total }) => `共 ${total} 条`, 'links', 'list', 'jumper']}\n  onChange={(value, pageSize) => {\n    ${5:}\n  }}\n/>"
+   "<DatePicker\n  range\n  onChange={d => console.log(d)}\n  type=\"datetime\"\n  allowSingle\n  style={{ marginTop: '12px' }}\n/>"
   ],
-  "description": "shineout-pagination"
+  "description": "shineout-datepicker"
+ },
+ "so-moda-confirm": {
+  "prefix": "so-moda-confirm",
+  "body": [
+   "Modal.confirm({\n  title: '${1:This is a confirm message}',\n  content: '${2:this is some information that user confirm}',\n  onOk: () =>\n  text: { ok: '${3:Yes}', cancel: '${4:NO}' },\n})"
+  ],
+  "description": "shineout-moda-confirm"
+ },
+ "so-input": {
+  "prefix": "so-input",
+  "body": [
+   "<Input\n  name=\"${1:name}\"\n  label=\"${2:label}\"\n  trim\n  autoComplete=\"off\"\n  clearable\n/>"
+  ],
+  "description": "shineout-input"
  },
  "so-popover": {
   "prefix": "so-popover",
@@ -62,12 +97,40 @@
   ],
   "description": "shineout-popover"
  },
+ "so-modal-table": {
+  "prefix": "so-modal-table",
+  "body": [
+   "const columns = [{\n  title: '操作时间',\n  render: 'addTime',\n}, {\n  title: '操作人',\n  render: 'addTime',\n}, {\n  title: '状态',\n  render: 'addTime',\n}];\n\n<Modal\n  visible={${1:visible}}\n  width={600}\n  title=\"${2:title}\"\n  onClose={${3:this.onClose}}\n  footer={\n    <div>\n      <Button onClick={${3:this.onClose}}>取消</Button>\n      <Modal.Submit>提交</Modal.Submit>\n    </div>\n  }\n>\n  <Table\n    fixed=\"both\"\n    loading={${4:loading}}\n    data={${5:list}}\n    keygen=\"id\"\n    columns={columns}\n    bordered\n  />\n</Modal>"
+  ],
+  "description": "shineout-modal-table"
+ },
+ "so-pagination": {
+  "prefix": "so-pagination",
+  "body": [
+   "<Pagination\n  text={{\n    page: '条/页',\n    jumper: '跳至 {input} 页',\n  }}\n  align=\"${1:right}\"\n  current={${2:pageNumber}}\n  pageSize={${3:pageSize}}\n  total={${4:total}}\n  layout={[({ total }) => `共 ${total} 条`, 'links', 'list', 'jumper']}\n  onChange={(value, pageSize) => {\n    ${5:}\n  }}\n/>"
+  ],
+  "description": "shineout-pagination"
+ },
  "so-radio-group": {
   "prefix": "so-radio-group",
   "body": [
    "\n<Radio.Group keygen data={${1:data}} defaultValue=\"${2:blue}\" renderItem={${3:renderItem}} />"
   ],
   "description": "shineout-radio-group"
+ },
+ "so-tabs": {
+  "prefix": "so-tabs",
+  "body": [
+   "<Tabs defaultActive={1}>\n  <Tabs.Panel style={panelStyle} tab=\"Home\">\n    {lorem(5)}\n  </Tabs.Panel>\n  <Tabs.Panel style={panelStyle} tab=\"Profile\">\n    {lorem(6)}\n  </Tabs.Panel>\n</Tabs>"
+  ],
+  "description": "shineout-tabs"
+ },
+ "so-select": {
+  "prefix": "so-select",
+  "body": [
+   "<Select\n  name=\"${1:name}\"\n  keygen=\"${2:id}\"\n  format=\"${3:id}\"\n  renderItem=\"${4:title}\"\n  data={${5:data}}\n  placeholder=\"${6:placeholder}\"\n  clearable\n/>"
+  ],
+  "description": "shineout-select"
  },
  "so-search-area": {
   "prefix": "so-search-area",
@@ -83,13 +146,6 @@
   ],
   "description": "shineout-spin"
  },
- "so-switch": {
-  "prefix": "so-switch",
-  "body": [
-   "<Switch size=\"${1:small}\" checked={${2:false}} defaultValue={${3:defaultValue}} />"
-  ],
-  "description": "shineout-switch"
- },
  "so-table": {
   "prefix": "so-table",
   "body": [
@@ -97,26 +153,12 @@
   ],
   "description": "shineout-table"
  },
- "so-tag": {
-  "prefix": "so-tag",
+ "so-switch": {
+  "prefix": "so-switch",
   "body": [
-   "<Tag type=\"${1:success}\">Success</Tag>"
+   "<Switch size=\"${1:small}\" checked={${2:false}} defaultValue={${3:defaultValue}} />"
   ],
-  "description": "shineout-tag"
- },
- "so-tabs": {
-  "prefix": "so-tabs",
-  "body": [
-   "<Tabs defaultActive={1}>\n  <Tabs.Panel style={panelStyle} tab=\"Home\">\n    {lorem(5)}\n  </Tabs.Panel>\n  <Tabs.Panel style={panelStyle} tab=\"Profile\">\n    {lorem(6)}\n  </Tabs.Panel>\n</Tabs>"
-  ],
-  "description": "shineout-tabs"
- },
- "so-textarea": {
-  "prefix": "so-textarea",
-  "body": [
-   "<Textarea rows={${1:6}} placeholder=\"${2:input something}\" />"
-  ],
-  "description": "shineout-textarea"
+  "description": "shineout-switch"
  },
  "so-tree-select": {
   "prefix": "so-tree-select",
@@ -125,11 +167,25 @@
   ],
   "description": "shineout-tree-select"
  },
+ "so-tag": {
+  "prefix": "so-tag",
+  "body": [
+   "<Tag type=\"${1:success}\">Success</Tag>"
+  ],
+  "description": "shineout-tag"
+ },
  "so-upload": {
   "prefix": "so-upload",
   "body": [
    "<Upload\n  action=\"${1://jsonplaceholder.typicode.com/posts}\"\n  accept=\"image/*\"\n  value={this.state.value}\n  name=\"file\"\n  onSuccess={(res, file) => file.name}\n  onChange={v => {\n    console.log(v)\n    this.setState({ value: v })\n  }}\n  limit={3}\n  style={{ width: 300 }}\n>\n  <Button>\n    <FontAwesome name=\"upload\" />\n    Upload file\n  </Button>\n</Upload>"
   ],
   "description": "shineout-upload"
+ },
+ "so-textarea": {
+  "prefix": "so-textarea",
+  "body": [
+   "<Textarea rows={${1:6}} placeholder=\"${2:input something}\" />"
+  ],
+  "description": "shineout-textarea"
  }
 }

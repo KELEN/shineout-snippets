@@ -1,0 +1,32 @@
+const columns = [{
+  title: '操作时间',
+  render: 'addTime',
+}, {
+  title: '操作人',
+  render: 'addTime',
+}, {
+  title: '状态',
+  render: 'addTime',
+}];
+
+<Modal
+  visible={${1:visible}}
+  width={600}
+  title="${2:title}"
+  onClose={${3:this.onClose}}
+  footer={
+    <div>
+      <Button onClick={${3:this.onClose}}>取消</Button>
+      <Modal.Submit>提交</Modal.Submit>
+    </div>
+  }
+>
+  <Table
+    fixed="both"
+    loading={${4:loading}}
+    data={${5:list}}
+    keygen="id"
+    columns={columns}
+    bordered
+  />
+</Modal>

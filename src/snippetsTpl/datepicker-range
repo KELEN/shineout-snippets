@@ -1,0 +1,8 @@
+<DatePicker
+  type="${1:datetime}"
+  range
+  name={['${2:name1}', '${3:name2}']}
+  defaultTime={['00:00:00', '23:59:59']}
+  label="${4:label}"
+  span={2}
+/>

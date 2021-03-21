@@ -1,0 +1,9 @@
+<Select
+  name="${1:name}"
+  keygen="${2:id}"
+  format="${3:id}"
+  renderItem="${4:title}"
+  data={${5:data}}
+  placeholder="${6:placeholder}"
+  clearable
+/>

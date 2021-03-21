@@ -1,7 +1,10 @@
 <DatePicker
+  name={['${0:start}', '${1:end}']}
+  label="${3:label}"
   range
-  onChange={d => console.log(d)}
   type="datetime"
+  defaultTime={['00:00:00', '23:59:59']}
+  placeholder={['${4:start}', '${5:end}']}
+  span={2}
   allowSingle
-  style={{ marginTop: '12px' }}
 />

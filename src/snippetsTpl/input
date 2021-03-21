@@ -1,0 +1,7 @@
+<Input
+  name="${1:name}"
+  label="${2:label}"
+  trim
+  autoComplete="off"
+  clearable
+/>

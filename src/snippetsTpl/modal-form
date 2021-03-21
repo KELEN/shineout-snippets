@@ -1,27 +1,44 @@
 <Modal
   visible={${1:visible}}
-  width={456}
-  title="Form"
-  onClose={${2:this.onClose}}
+  width={600}
+  title="${2:title}"
+  onClose={${3:this.onClose}}
+  maskCloseAble={false}
   footer={
     <div>
-      <Button onClick={this.handleClose}>Cancel</Button>
-      <Modal.Submit>Submit</Modal.Submit>
+      <Button onClick={${3:this.onClose}}>取消</Button>
+      <Modal.Submit>提交</Modal.Submit>
     </div>
   }
 >
   <Form
     labelWidth={100}
     labelAlign="right"
-    style={{ maxWidth: 400 }}
-    onSubmit={this.handleSubmit}
+    onSubmit={${4:this.handleFormSubmit}}
+    onChange={${5:this.handleFormChange}}
   >
     <Form.Item required label="Email">
-      <Input name="email" />
+      <Input 
+        name="email"
+        trim
+        autoComplete="off"
+        rules={[{
+          required: true,
+          message: '不能为空',
+        }]}
+      />
     </Form.Item>
 
     <Form.Item required label="Password">
-      <Input name="password" type="password" />
+      <Input 
+        name="password"
+        trim
+        autoComplete="off"
+        rules={[{
+          required: true,
+          message: '不能为空',
+        }]}
+      />
     </Form.Item>
   </Form>
 </Modal>
